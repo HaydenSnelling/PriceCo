@@ -16,6 +16,7 @@ amount2Input.addEventListener('input', updatePricePerUnit);
 price2Input.addEventListener('input', updatePricePerUnit);
 
 // Function to update price per unit and compare products
+// Function to update price per unit and compare products
 function updatePricePerUnit() {
     // Calculate price per unit for product 1
     if (amount1Input.value && price1Input.value) {
@@ -39,21 +40,21 @@ function updatePricePerUnit() {
         const pricePerUnit2Value = parseFloat(pricePerUnit2.textContent);
 
         if (pricePerUnit1Value < pricePerUnit2Value) {
-            product1Div.classList.add('better-value');
-            product2Div.classList.remove('better-value');
+            product1Div.classList.add('better-value', 'pulse');
+            product2Div.classList.remove('better-value', 'pulse');
             betterValueText.textContent = 'Better Value: Product 1';
         } else if (pricePerUnit1Value > pricePerUnit2Value) {
-            product1Div.classList.remove('better-value');
-            product2Div.classList.add('better-value');
+            product1Div.classList.remove('better-value', 'pulse');
+            product2Div.classList.add('better-value', 'pulse');
             betterValueText.textContent = 'Better Value: Product 2';
         } else {
-            product1Div.classList.remove('better-value');
-            product2Div.classList.remove('better-value');
+            product1Div.classList.remove('better-value', 'pulse');
+            product2Div.classList.remove('better-value', 'pulse');
             betterValueText.textContent = 'Both are of equal value.';
         }
     } else {
-        product1Div.classList.remove('better-value');
-        product2Div.classList.remove('better-value');
+        product1Div.classList.remove('better-value', 'pulse');
+        product2Div.classList.remove('better-value', 'pulse');
         betterValueText.textContent = '';
     }
 }

@@ -1,9 +1,8 @@
-
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     padding: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .container {
@@ -13,31 +12,56 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
 }
 
 .product {
     margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    border-color: #4CAF50;
 }
 
 .product h2 {
     font-size: 1.2em;
     margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
 input[type="number"] {
     width: 80px;
     padding: 6px;
     font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
-#betterValueText {
-    font-size: 1.1em;
-    font-weight: bold;
+input[type="number"]:focus {
+    border-color: #4CAF50;
+}
+
+.pulse {
+    animation: pulseAnimation 1s infinite;
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .better-value {
     background-color: lightgreen;
+    transition: background-color 0.3s ease;
 }
-
-
-/* #  */
