@@ -68,7 +68,14 @@ input[type="number"]:focus {
     transition: background-color 0.3s ease;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 426px) {
+    .container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 402px) {
     .input-group {
         margin-bottom: 10px;
     }
