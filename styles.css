@@ -34,14 +34,7 @@ body {
     transition: color 0.3s ease;
 }
 
-.input-group {
-    margin-bottom: 10px;
-}
 
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-}
 
 input[type="number"] {
     width: 80px;
@@ -73,4 +66,15 @@ input[type="number"]:focus {
 .better-value {
     background-color: lightgreen;
     transition: background-color 0.3s ease;
+}
+
+@media (max-width: 430px) {
+    .input-group {
+        margin-bottom: 10px;
+    }
+    
+    .input-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
 }
