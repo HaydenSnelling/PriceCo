@@ -32,19 +32,39 @@
         </div>
         <p id="betterValueText">Better Value:</p>
     </div>
-    <script src="script.js"></script>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-              console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch(error => {
-              console.log('Service Worker registration failed:', error);
-            });
+          .then(registration => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch(error => {
+            console.log('Service Worker registration failed:', error);
+          });
         });
       }
-    </script>
+      </script>
+    <script>
+      // Current version of the site
+      const currentVersion = '1.1';
+      
+      // Function to check version and refresh if outdated or not present
+      function checkVersionAndUpdate() {
+        const storedVersion = localStorage.getItem('siteVersion');
+        
+        if (!storedVersion || storedVersion !== currentVersion) {
+          // Store the new version
+          localStorage.setItem('siteVersion', currentVersion);
+          
+          // Force refresh to get the latest files
+          location.reload(true);  // true forces reload from the server
+        }
+      }
+      
+      // Check version on page load
+      checkVersionAndUpdate();
+      </script>
+    <script src="script.js?v=1.1"></script>
 </body>
 </html>
