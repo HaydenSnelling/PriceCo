@@ -16,29 +16,28 @@ amount2Input.addEventListener('input', updatePricePerUnit);
 price2Input.addEventListener('input', updatePricePerUnit);
 
 // Function to update price per unit and compare products
-// Function to update price per unit and compare products
 function updatePricePerUnit() {
+    let pricePerUnit1Value = null;
+    let pricePerUnit2Value = null;
+
     // Calculate price per unit for product 1
     if (amount1Input.value && price1Input.value) {
-        const pricePerUnit = price1Input.value / amount1Input.value;
-        pricePerUnit1.textContent = pricePerUnit.toFixed(2);
+        pricePerUnit1Value = price1Input.value / amount1Input.value;
+        pricePerUnit1.textContent = pricePerUnit1Value.toFixed(4);
     } else {
         pricePerUnit1.textContent = '';
     }
 
     // Calculate price per unit for product 2
     if (amount2Input.value && price2Input.value) {
-        const pricePerUnit = price2Input.value / amount2Input.value;
-        pricePerUnit2.textContent = pricePerUnit.toFixed(2);
+        pricePerUnit2Value = price2Input.value / amount2Input.value;
+        pricePerUnit2.textContent = pricePerUnit2Value.toFixed(4);
     } else {
         pricePerUnit2.textContent = '';
     }
 
     // Compare and highlight better value
-    if (amount1Input.value && price1Input.value && amount2Input.value && price2Input.value) {
-        const pricePerUnit1Value = parseFloat(pricePerUnit1.textContent);
-        const pricePerUnit2Value = parseFloat(pricePerUnit2.textContent);
-
+    if (pricePerUnit1Value !== null && pricePerUnit2Value !== null) {
         if (pricePerUnit1Value < pricePerUnit2Value) {
             product1Div.classList.add('better-value', 'pulse');
             product2Div.classList.remove('better-value', 'pulse');
