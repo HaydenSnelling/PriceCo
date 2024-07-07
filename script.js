@@ -15,6 +15,11 @@ price1Input.addEventListener('input', updatePricePerUnit);
 amount2Input.addEventListener('input', updatePricePerUnit);
 price2Input.addEventListener('input', updatePricePerUnit);
 
+// Function to format the number to up to 5 decimal places without trailing zeros
+function formatNumber(num) {
+    return parseFloat(num.toFixed(5)).toString();
+}
+
 // Function to update price per unit and compare products
 function updatePricePerUnit() {
     let pricePerUnit1Value = null;
@@ -23,7 +28,7 @@ function updatePricePerUnit() {
     // Calculate price per unit for product 1
     if (amount1Input.value && price1Input.value) {
         pricePerUnit1Value = price1Input.value / amount1Input.value;
-        pricePerUnit1.textContent = pricePerUnit1Value.toFixed(4);
+        pricePerUnit1.textContent = formatNumber(pricePerUnit1Value);
     } else {
         pricePerUnit1.textContent = '';
     }
@@ -31,7 +36,7 @@ function updatePricePerUnit() {
     // Calculate price per unit for product 2
     if (amount2Input.value && price2Input.value) {
         pricePerUnit2Value = price2Input.value / amount2Input.value;
-        pricePerUnit2.textContent = pricePerUnit2Value.toFixed(4);
+        pricePerUnit2.textContent = formatNumber(pricePerUnit2Value);
     } else {
         pricePerUnit2.textContent = '';
     }
