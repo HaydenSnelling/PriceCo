@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <span class="tooltip" data-version="1.1">
+        <span class="tooltip" data-version="1.1" tabindex="0">
         <h1>Product Price Comparison</h1>
         <span class="tooltiptext">Version 1.1</span>
         </span>
@@ -51,23 +51,26 @@
     <script>
       // Current version of the site
       const currentVersion = '1.1';
-      
+
       // Function to check version and refresh if outdated or not present
       function checkVersionAndUpdate() {
-        const storedVersion = localStorage.getItem('siteVersion');
-        
-        if (!storedVersion || storedVersion !== currentVersion) {
-          // Store the new version
-          localStorage.setItem('siteVersion', currentVersion);
-          
-          // Force refresh to get the latest files
-          location.reload(true);  // true forces reload from the server
-        }
+          const storedVersion = localStorage.getItem('siteVersion');
+
+          if (!storedVersion || storedVersion !== currentVersion) {
+              // Store the new version
+              localStorage.setItem('siteVersion', currentVersion);
+
+              // Force refresh to get the latest files
+              location.reload(true);  // true forces reload from the server
+          }
       }
-      
+
+      // Set tooltip version text
+      document.querySelector('.tooltip .tooltiptext').textContent = `Version ${currentVersion}`;
+
       // Check version on page load
       checkVersionAndUpdate();
-      </script>
+  </script>
     <script src="script.js?v=1.1"></script>
 </body>
 </html>
